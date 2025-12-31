@@ -1,29 +1,28 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رسالتي إلى شمام 💜</title>
+    <title>To My Dearest Shamam 💜</title>
     <style>
         body {
             background: 
-                /* خلفية ورود */
-                url('https://i.imgur.com/6VnLQ7P.png') center/cover no-repeat,
-                /* تدرج بنفسجي */
-                linear-gradient(135deg, #7B1FA2, #E1BEE7);
+                linear-gradient(135deg, #8A2BE2, #DA70D6),
+                url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-blend-mode: overlay;
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', serif;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
             position: relative;
             overflow-x: hidden;
         }
         
-        /* تأثير شفافية على الخلفية */
+        /* Overlay for better readability */
         body::before {
             content: '';
             position: absolute;
@@ -31,166 +30,186 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(106, 13, 173, 0.4);
             z-index: -1;
         }
         
-        .letter {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 50px;
-            max-width: 700px;
+        .letter-container {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            max-width: 750px;
+            width: 90%;
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.3),
+                0 20px 50px rgba(0, 0, 0, 0.4),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             position: relative;
             overflow: hidden;
         }
         
-        /* زخارف جانبية */
-        .letter::before {
-            content: '💜';
+        /* Decorative corners */
+        .letter-container::before,
+        .letter-container::after {
+            content: '❀';
             position: absolute;
-            top: 20px;
-            left: 20px;
             font-size: 40px;
-            opacity: 0.3;
+            color: rgba(255, 215, 0, 0.3);
         }
-        
-        .letter::after {
-            content: '🌸';
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 40px;
-            opacity: 0.3;
-        }
+        .letter-container::before { top: 15px; left: 20px; }
+        .letter-container::after { bottom: 15px; right: 20px; }
         
         h1 {
             color: #FFD700;
             font-size: 2.8em;
             margin-bottom: 40px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(45deg, #FFD700, #FFECB3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             padding-bottom: 15px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
         }
         
-        .message {
-            font-size: 1.3em;
+        .message-content {
+            font-size: 1.35em;
             line-height: 1.9;
-            text-align: right;
-            direction: rtl;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .message p {
-            margin-bottom: 25px;
-            padding-right: 20px;
-            border-right: 3px solid rgba(255, 105, 180, 0.5);
-            transition: all 0.3s ease;
-        }
-        
-        .message p:hover {
-            border-right-color: #FF69B4;
-            transform: translateX(-5px);
-        }
-        
-        .heart {
-            color: #FF69B4;
-            font-size: 1.8em;
-            margin: 0 8px;
-            animation: heartbeat 1.5s infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        .emoji {
-            font-size: 1.6em;
-            margin: 0 5px;
-        }
-        
-        .signature {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            font-style: italic;
-            font-size: 1.4em;
-            color: #FFD700;
             text-align: center;
         }
         
-        .rose {
-            position: absolute;
-            font-size: 60px;
-            opacity: 0.1;
-            z-index: 0;
+        .message-line {
+            margin: 22px 0;
+            padding: 8px 0;
+            position: relative;
+            transition: transform 0.3s ease;
         }
         
-        .rose1 { top: 10%; left: 5%; }
-        .rose2 { bottom: 10%; right: 5%; }
+        .message-line:hover {
+            transform: translateY(-3px);
+        }
         
-        /* تأثيرات للجوال */
+        .heart-emoji {
+            color: #FF69B4;
+            font-size: 1.7em;
+            margin: 0 8px;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .special-emoji {
+            font-size: 1.8em;
+            margin: 0 5px;
+        }
+        
+        .signature-box {
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+        }
+        
+        .signature {
+            font-size: 1.7em;
+            color: #FFD700;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .ending-note {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        /* Floating hearts background */
+        .floating-heart {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.15;
+            animation: floatAround 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+        
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .letter {
-                padding: 30px;
-                margin: 15px;
+            .letter-container {
+                padding: 30px 20px;
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             
-            .message {
-                font-size: 1.1em;
+            .message-content {
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="rose rose1">🌹</div>
-    <div class="rose rose2">🌹</div>
+    <!-- Floating decorative hearts -->
+    <div class="floating-heart" style="top:10%; left:5%;">💜</div>
+    <div class="floating-heart" style="top:20%; right:10%;">💖</div>
+    <div class="floating-heart" style="bottom:30%; left:15%;">🌸</div>
     
-    <div class="letter">
-        <h1>💌 رسالة رأس السنة إلى حبيبي شمام 💜</h1>
+    <div class="letter-container">
+        <h1>To My Dearest Shamam 💜</h1>
         
-        <div class="message">
-            <p>مع بداية السنة الجديدة، أجد قلبي يعود إليك. <span class="heart">💜</span></p>
-            <p>في كل لحظة هادئة، حضورك يشبه الوطن. <span class="heart">💜</span></p>
-            <p>أنت الدفء الذي تبحث عنه روحي في كل فصل. <span class="heart">💜</span></p>
-            <p>معك، حتى الوقت يبدو ألطف وأكثر رقة. <span class="heart">💜</span></p>
-            <p>أحمل حبك كأعظم يقين في حياتي.</p>
-            <p>لتحتضن هذه السنة أيدينا أقرب من قبل. <span class="heart">💜</span></p>
-            <p>لتصير أيامنا أكثر لطفاً وليالينا أكثر أملاً. <span class="heart">💜</span></p>
-            <p>وليتعمق حبي لك مع كل صفحة تقلب. <span class="heart">💜</span></p>
+        <div class="message-content">
+            <div class="message-line">As the new year begins, I find my heart returning to you. <span class="heart-emoji">💜</span></div>
+            <div class="message-line">In every quiet moment, your presence feels like home. <span class="heart-emoji">💜</span></div>
+            <div class="message-line">You are the warmth my soul seeks in every season. <span class="heart-emoji">💜</span></div>
+            <div class="message-line">With you, even time seems kinder and more gentle. <span class="heart-emoji">💜</span></div>
+            <div class="message-line">I carry your love as my sweetest certainty.</div>
+            <div class="message-line">May this year hold our hands closer than before. <span class="heart-emoji">💜</span></div>
+            <div class="message-line">May our days grow softer and our nights more full of hope. <span class="heart-emoji">💜</span></div>
+            <div class="message-line">And may my love for you deepen with every turning page. <span class="heart-emoji">💜</span></div>
+            <div class="message-line">May this year keep you wrapped in love and light, my Shamam. <span class="special-emoji">🥰</span></div>
+            <div class="message-line">Forever yours, with a heart that chooses you every day. <span class="special-emoji">🥺</span></div>
             
-            <p>لتظل هذه السنة تحضنك بالحب والنور، يا شمامي. <span class="emoji">🥰</span></p>
-            <p>لك إلى الأبد، بقلب يختارك كل يوم. <span class="emoji">🥺</span></p>
-            
-            <div class="signature">
-                سنة جديدة سعيدة يا شوشتي <span class="emoji">💜💋</span><br>
-                <small style="opacity:0.8;">مع كل حبي وتقديري</small>
+            <div class="signature-box">
+                <div class="signature">Happy new year, Shoushty <span class="special-emoji">💜💋</span></div>
+                <div class="ending-note">With all my love and affection</div>
             </div>
         </div>
     </div>
     
     <script>
-        // تأثير بسيط عند التمرير
+        // Create more floating hearts
         document.addEventListener('DOMContentLoaded', function() {
-            const hearts = document.querySelectorAll('.heart');
-            hearts.forEach(heart => {
-                heart.addEventListener('click', function() {
+            const heartContainer = document.body;
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '💜';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                heart.style.opacity = Math.random() * 0.1 + 0.05;
+                heartContainer.appendChild(heart);
+            }
+            
+            // Heart click effect
+            document.querySelectorAll('.heart-emoji, .special-emoji').forEach(emoji => {
+                emoji.addEventListener('click', function() {
+                    const originalSize = this.style.fontSize;
+                    this.style.fontSize = '2.2em';
                     this.style.color = '#FF1493';
                     setTimeout(() => {
-                        this.style.color = '#FF69B4';
+                        this.style.fontSize = originalSize;
+                        this.style.color = '';
                     }, 300);
                 });
             });
